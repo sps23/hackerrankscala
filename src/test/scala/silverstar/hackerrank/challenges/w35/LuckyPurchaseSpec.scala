@@ -4,11 +4,19 @@ import org.scalatest.{FunSpec, Matchers}
 
 class LuckyPurchaseSpec extends FunSpec with Matchers {
 
-  it("should print 'BestBook' as a lucky purchase ") {
+  it("should print 'BestBook' as a lucky purchase1") {
     val laptops = Seq(
       ("HackerBook", 777444),
       ("RankBook", 3),
       ("TheBook", 777),
+      ("BestBook", 47)
+    )
+    LuckyPurchase.printBestLaptop(laptops) shouldBe "BestBook"
+  }
+
+  it("should print 'BestBook' as a lucky purchase2") {
+    val laptops = Seq(
+      ("B", 777444),
       ("BestBook", 47)
     )
     LuckyPurchase.printBestLaptop(laptops) shouldBe "BestBook"

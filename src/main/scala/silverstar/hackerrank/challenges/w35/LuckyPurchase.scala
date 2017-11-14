@@ -71,7 +71,7 @@ object LuckyPurchase {
   def printBestLaptop(laptops: Seq[(String, Int)]): String = {
     laptops.filter(l => isLuckyPrice(l._2)) match {
       case Seq() => "-1"
-      case seq => seq.minBy(_._1)._1
+      case seq => seq.minBy(_._2)._1
     }
   }
 }
