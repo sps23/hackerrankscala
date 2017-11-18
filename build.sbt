@@ -1,8 +1,8 @@
 name := "HackerRankScala"
 
-version := "1.0"
+version := "1.1"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.12"
 
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.0"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.4"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % "test"
