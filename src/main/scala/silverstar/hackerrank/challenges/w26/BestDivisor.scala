@@ -18,13 +18,15 @@ object BestDivisor extends App {
     }
 
     val divisors = allDivisors(1, List())
-    val divisorsTuples: List[(Int, Int)] = divisors.map(number => {
-      (number, number.toString.map(_.asDigit).sum)
-    }).sortBy(_._2)(Ordering[Int].reverse)
+    val divisorsTuples: List[(Int, Int)] = divisors
+      .map(number => {
+        (number, number.toString.map(_.asDigit).sum)
+      })
+      .sortBy(_._2)(Ordering[Int].reverse)
     divisorsTuples.headOption.fold(-1)(_._1)
   }
 
   val sc = new Scanner(System.in)
-  val n = sc.nextInt()
+  val n  = sc.nextInt()
   // println(findBestDivisor(n))
 }

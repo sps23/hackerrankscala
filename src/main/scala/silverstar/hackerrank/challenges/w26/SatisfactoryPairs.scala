@@ -10,7 +10,7 @@ object SatisfactoryPairs extends App {
 
     @tailrec
     def possibleABPairs(a: Int, b: Int, acc: List[(Int, Int)]): List[(Int, Int)] = {
-      val aPlusB: Int = a + b
+      val aPlusB: Int         = a + b
       val abTuple: (Int, Int) = (a, b)
       if (aPlusB < n) possibleABPairs(a, b + 1, acc :+ abTuple)
       else if (aPlusB == n) possibleABPairs(a + 1, a + 2, acc :+ abTuple)
@@ -33,6 +33,6 @@ object SatisfactoryPairs extends App {
   }
 
   val sc = new Scanner(System.in)
-  val n = sc.nextInt()
+  val n  = sc.nextInt()
   // println(numberOfSatisfactoryPairs(n))
 }

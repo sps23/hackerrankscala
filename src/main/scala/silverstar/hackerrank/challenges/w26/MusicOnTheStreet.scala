@@ -13,7 +13,7 @@ object MusicOnTheStreet extends App {
     def combinationsForBorderPoints(points: List[Int]): List[List[Int]] = {
       points match {
         case head :: _ => (hMin to hMax).toList.reverse.map(i => head - i :: points)
-        case _ => List.empty
+        case _         => List.empty
       }
     }
 
@@ -23,7 +23,7 @@ object MusicOnTheStreet extends App {
       case h :: t =>
         val maybeStartPoint: Option[Int] = iterate(h, miles, None)
         maybeStartPoint match {
-          case None => iterateBorderPoints(t)
+          case None       => iterateBorderPoints(t)
           case startPoint => startPoint
         }
     }
@@ -40,7 +40,7 @@ object MusicOnTheStreet extends App {
             else if (distance > hMax) iterateBorderPoints(combinationsForBorderPoints(i :: tail))
             else iterate(i :: tail, miles, None)
           case List(l) if isValidDistance(m) => startPoint.orElse(Option(l))
-          case _ => None
+          case _                             => None
         }
       }
     }
@@ -50,11 +50,11 @@ object MusicOnTheStreet extends App {
     iterateBorderPoints(allCombinationOfBorderPoints).getOrElse(Int.MinValue)
   }
 
-  val sc = new Scanner(System.in)
-  val n: Int = sc.nextInt()
+  val sc           = new Scanner(System.in)
+  val n: Int       = sc.nextInt()
   val a: List[Int] = (1 to n).map(_ => sc.nextInt()).toList
-  val m: Int = sc.nextInt()
-  val hMin: Int = sc.nextInt()
-  val hMax: Int = sc.nextInt()
+  val m: Int       = sc.nextInt()
+  val hMin: Int    = sc.nextInt()
+  val hMax: Int    = sc.nextInt()
   // println(possibleStartPoint(a, m, hMin, hMax))
 }

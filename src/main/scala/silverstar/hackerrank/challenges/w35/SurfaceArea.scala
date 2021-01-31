@@ -51,10 +51,10 @@ object SurfaceArea {
       j <- 0 until cols
     } yield {
       val centre = A(i)(j)
-      val west = if (j - 1 < 0) 0 else A(i)(j - 1)
-      val east = if (j + 1 >= cols) 0 else A(i)(j + 1)
-      val north = if (i - 1 < 0) 0 else A(i - 1)(j)
-      val south = if (i + 1 >= rows) 0 else A(i + 1)(j)
+      val west   = if (j - 1 < 0) 0 else A(i)(j - 1)
+      val east   = if (j + 1 >= cols) 0 else A(i)(j + 1)
+      val north  = if (i - 1 < 0) 0 else A(i - 1)(j)
+      val south  = if (i + 1 >= rows) 0 else A(i + 1)(j)
       dif(centre, west) + dif(centre, east) + dif(centre, north) + dif(centre, south) + 2
     }
     s.sum
