@@ -1,8 +1,9 @@
 package silverstar.hackerrank.challenges.w34
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class MaximumGcdAndSumSpec extends FunSpec with Matchers {
+class MaximumGcdAndSumSpec extends AnyFunSpec with Matchers {
 
   it("should return 16 for maximumGcdAndSum") {
     val a = Array(3, 1, 4, 2, 8)

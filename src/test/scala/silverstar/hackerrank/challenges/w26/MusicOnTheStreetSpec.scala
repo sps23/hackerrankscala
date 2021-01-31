@@ -1,8 +1,9 @@
 package silverstar.hackerrank.challenges.w26
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class MusicOnTheStreetSpec extends FunSpec with Matchers {
+class MusicOnTheStreetSpec extends AnyFunSpec with Matchers {
 
   import MusicOnTheStreet._
 
@@ -24,7 +25,7 @@ class MusicOnTheStreetSpec extends FunSpec with Matchers {
 
   describe("possibleStartPoint") {
     for (t <- testData) {
-      it(s"should return '${t._2}' for '${t._1}'") {
+      it(s"should return '${t._2.toString}' for '${t._1.toString}'") {
         possibleStartPoint(t._1._1, t._1._2, t._1._3, t._1._4) shouldBe t._2
       }
     }

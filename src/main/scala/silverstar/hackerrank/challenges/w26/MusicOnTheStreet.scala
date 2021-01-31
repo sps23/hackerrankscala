@@ -4,16 +4,18 @@ import java.util.Scanner
 
 import scala.annotation.tailrec
 
-object MusicOnTheStreet {
+object MusicOnTheStreet extends App {
 
   def possibleStartPoint(borderPoints: List[Int], miles: Int, hMin: Int, hMax: Int): Int = {
 
     def isValidDistance(d: Int): Boolean = d >= hMin && d <= hMax
 
-    def combinationsForBorderPoints(points: List[Int]): List[List[Int]] =
-      (hMin to hMax).toList.reverse.map(i =>
-        points.head - i :: points
-      )
+    def combinationsForBorderPoints(points: List[Int]): List[List[Int]] = {
+      points match {
+        case head :: _ => (hMin to hMax).toList.reverse.map(i => head - i :: points)
+        case _ => List.empty
+      }
+    }
 
     @tailrec
     def iterateBorderPoints(borderPointsList: List[List[Int]]): Option[Int] = borderPointsList match {
@@ -37,10 +39,8 @@ object MusicOnTheStreet {
             else if (isValidDistance(distance)) iterate(i :: tail, m - distance, startPoint.orElse(Option(h)))
             else if (distance > hMax) iterateBorderPoints(combinationsForBorderPoints(i :: tail))
             else iterate(i :: tail, miles, None)
-          case List(l) =>
-            if (isValidDistance(m)) startPoint.orElse(Option(l))
-            else None
-          case List() => None
+          case List(l) if isValidDistance(m) => startPoint.orElse(Option(l))
+          case _ => None
         }
       }
     }
@@ -50,13 +50,11 @@ object MusicOnTheStreet {
     iterateBorderPoints(allCombinationOfBorderPoints).getOrElse(Int.MinValue)
   }
 
-  def main(args: Array[String]) {
-    val sc = new Scanner(System.in)
-    val n: Int = sc.nextInt()
-    val a: List[Int] = (1 to n).map(_ => sc.nextInt()).toList
-    val m: Int = sc.nextInt()
-    val hMin: Int = sc.nextInt()
-    val hMax: Int = sc.nextInt()
-    println(possibleStartPoint(a, m, hMin, hMax))
-  }
+  val sc = new Scanner(System.in)
+  val n: Int = sc.nextInt()
+  val a: List[Int] = (1 to n).map(_ => sc.nextInt()).toList
+  val m: Int = sc.nextInt()
+  val hMin: Int = sc.nextInt()
+  val hMax: Int = sc.nextInt()
+  // println(possibleStartPoint(a, m, hMin, hMax))
 }

@@ -1,8 +1,9 @@
 package silverstar.hackerrank.challenges.w35
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class LuckyPurchaseSpec extends FunSpec with Matchers {
+class LuckyPurchaseSpec extends AnyFunSpec with Matchers {
 
   it("should print 'BestBook' as a lucky purchase1") {
     val laptops = Seq(

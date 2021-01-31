@@ -2,7 +2,7 @@ package silverstar.hackerrank.challenges.w26
 
 import java.util.Scanner
 
-object ArmyGame {
+object ArmyGame extends App {
 
   def supplyAll(n: Int, m: Int): Int = {
     val nDiv2: Int = n / 2
@@ -12,11 +12,8 @@ object ArmyGame {
     (nDiv2 * mDiv2) + (mDiv2 * nMod2) + (nDiv2 * mMod2) + (nMod2 * mMod2)
   }
 
-  def main(args: Array[String]) {
-    val sc = new Scanner(System.in)
-    val n = sc.nextInt()
-    val m = sc.nextInt()
-    supplyAll(n, m)
-  }
-
+  val sc = new Scanner(System.in)
+  val n = sc.nextInt()
+  val m = sc.nextInt()
+  val result = supplyAll(n, m)
 }

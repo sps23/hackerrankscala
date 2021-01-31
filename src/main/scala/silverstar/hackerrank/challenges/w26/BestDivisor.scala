@@ -4,7 +4,7 @@ import java.util.Scanner
 
 import scala.annotation.tailrec
 
-object BestDivisor {
+object BestDivisor extends App {
 
   def findBestDivisor(n: Int): Int = {
 
@@ -17,16 +17,14 @@ object BestDivisor {
       }
     }
 
-    val divisors = allDivisors(1,List())
+    val divisors = allDivisors(1, List())
     val divisorsTuples: List[(Int, Int)] = divisors.map(number => {
       (number, number.toString.map(_.asDigit).sum)
     }).sortBy(_._2)(Ordering[Int].reverse)
-    divisorsTuples.head._1
+    divisorsTuples.headOption.fold(-1)(_._1)
   }
 
-  def main(args: Array[String]) {
-    val sc = new Scanner(System.in)
-    val n = sc.nextInt()
-    println(findBestDivisor(n))
-  }
+  val sc = new Scanner(System.in)
+  val n = sc.nextInt()
+  // println(findBestDivisor(n))
 }

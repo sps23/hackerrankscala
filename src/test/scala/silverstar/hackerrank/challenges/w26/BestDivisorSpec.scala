@@ -1,8 +1,9 @@
 package silverstar.hackerrank.challenges.w26
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class BestDivisorSpec extends FunSpec with Matchers {
+class BestDivisorSpec extends AnyFunSpec with Matchers {
 
   import BestDivisor._
 
@@ -18,7 +19,7 @@ class BestDivisorSpec extends FunSpec with Matchers {
 
   describe("findBestDivisor") {
     for (t <- testData) {
-      it(s"should return '${t._2}' for '${t._1}'") {
+      it(s"should return '${t._2.toString}' for '${t._1.toString}'") {
         findBestDivisor(t._1) shouldBe t._2
       }
     }

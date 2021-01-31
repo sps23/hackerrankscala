@@ -1,8 +1,9 @@
 package silverstar.hackerrank.challenges.w26
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class TwinsSpec extends FunSpec with Matchers {
+class TwinsSpec extends AnyFunSpec with Matchers {
 
   import Twins._
 
@@ -17,10 +18,9 @@ class TwinsSpec extends FunSpec with Matchers {
 
   describe("numberOfPairsOfTwins") {
     for (t <- testData) {
-      it(s"should return '${t._2}' for '${t._1}'") {
+      it(s"should return '${t._2.toString}' for '${t._1.toString}'") {
         numberOfPairsOfTwins(t._1._1, t._1._2) shouldBe t._2
       }
     }
   }
-
 }

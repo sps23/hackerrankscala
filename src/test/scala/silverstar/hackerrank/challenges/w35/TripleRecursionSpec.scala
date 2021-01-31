@@ -1,8 +1,9 @@
 package silverstar.hackerrank.challenges.w35
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class TripleRecursionSpec extends FunSpec with Matchers {
+class TripleRecursionSpec extends AnyFunSpec with Matchers {
 
   it("should return matrix for '5, 10, 7'") {
     val expected = Array(

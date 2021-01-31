@@ -1,8 +1,9 @@
 package silverstar.hackerrank.challenges.w35
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class SurfaceAreaSpec extends FunSpec with Matchers {
+class SurfaceAreaSpec extends AnyFunSpec with Matchers {
 
   it("should return '60' for the example1") {
     val A = Array(
