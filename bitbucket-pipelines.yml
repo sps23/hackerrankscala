@@ -6,12 +6,21 @@ image: atlassian/default-image:2
 
 pipelines:
   default:
-    - parallel:
       - step:
-          name: 'Build and Test'
+          name: 'Initialisation of sbt'
           script:
-            - echo "Your build and test goes here..."
-            - sbt test
+              - apt-get update
+              - apt-get install apt-transport-https
+              - echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+              - apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+          - apt-get update
+          - echo "Installing sbt"
+          - apt-get install sbt   
+      - step:
+          name: 'Build and Test using sbt'
+          script:
+            - echo "R"
+            - sbt clean test
 #      - step:
 #          name: 'Lint'
 #          script:
